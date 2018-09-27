@@ -2,12 +2,12 @@ package filesystem
 
 import files.Directory
 
-class State(val root: Directory, val wd: Directory, val output: String) {
+class State(val root: Directory, val workingDirectory: Directory, val output: String) {
 
   def show: Unit =
     print(State.SHELL_TOKEN)
     println(output)
-  def setMessage(message: String): State = State(root, wd, message)
+  def setMessage(message: String): State = State(root, workingDirectory, message)
 
 }
 

@@ -5,6 +5,19 @@ class Directory(override val parentPath: String, override val name: String, val 
 
   def hasEntry(name: String): Boolean = ???
 
+  def getAllDirsInPath: List[String] =
+    path.substring(1).split(Directory.SEPARATOR).toList
+
+  def findDescendant(path: List[String]): Directory = ???
+
+  def addEntry(newEntry: DirEntry): Directory = ???
+
+  def findEntry(head: String): DirEntry = ???
+
+  def replaceEntry(name: String, directory: Directory): Directory = ???
+
+  def asDirectory: Directory = this
+
 }
 
 object Directory {
