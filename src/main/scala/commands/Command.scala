@@ -10,6 +10,8 @@ trait Command {
 
 object Command {
 
+  val CD = "cd"
+
   val EMPTY_SPACE = " "
 
   val LS = "ls"
@@ -44,6 +46,10 @@ object Command {
     }
     else if (TOUCH.equals(tokens(0))) {
       new Touch(tokens(1))
+    }
+    else if (CD.equals(tokens(0))) {
+      if (tokens.length < 2) incompleteCommand(MKDIR)
+      else new Cd(tokens(1))
     }
     else new UnknownCommand
   }
