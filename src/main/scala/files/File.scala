@@ -2,7 +2,7 @@ package files
 
 import filesystem.FilesystemException
 
-class File(override val parentPath: String, override val name: String, contents: String) extends DirEntry(parentPath, name) {
+class File(override val parentPath: String, override val name: String, content: String) extends DirEntry(parentPath, name) {
 
   def asDirectory: Directory =
     throw new FilesystemException("A file cannot be converted to a directory.")
@@ -14,6 +14,12 @@ class File(override val parentPath: String, override val name: String, contents:
   def isFile: Boolean = true
 
   def isDirectory: Boolean = false
+
+  def setContent(newContent: String): File =
+    new File(parentPath, name, newContent)
+
+  def appendContent(newContent: String): File =
+    setContent(content + "\n" + newContent)
 
 }
 

@@ -12,6 +12,8 @@ object Command {
 
   val CD = "cd"
 
+  val ECHO = "echo"
+
   val EMPTY_SPACE = " "
 
   val LS = "ls"
@@ -56,6 +58,10 @@ object Command {
     else if (RM.equals(tokens(0))) {
       if (tokens.length < 2) incompleteCommand(RM)
       else new Rm(tokens(1))
+    }
+    else if (ECHO.equals(tokens(0))) {
+      if (tokens.length < 2) incompleteCommand(ECHO)
+      else new Echo(tokens.tail)
     }
     else new UnknownCommand
   }
