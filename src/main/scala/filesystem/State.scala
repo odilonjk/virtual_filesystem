@@ -6,14 +6,14 @@ class State(val root: Directory, val workingDirectory: Directory, val output: St
 
   def show: Unit =
     print(State.SHELL_TOKEN)
-    println(output)
+    print(output)
   def setMessage(message: String): State = State(root, workingDirectory, message)
 
 }
 
 object State {
 
-  val SHELL_TOKEN = "$ "
+  val SHELL_TOKEN = "$"
   def apply(root: Directory, wd: Directory, output: String = "") =
     new State(root, wd, output)
 
